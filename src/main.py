@@ -9,7 +9,10 @@ mysql = MySQL(app)
 
 @app.route('/')
 def home():
-   return render_template("home.html")
+   cur = mysql.connection.cursor()
+   cur.execute("SELECT * FROM user;")
+   users = cur.fetchall()
+   return render_template("home.html", **locals())
 
 
 if __name__ == "__main__":

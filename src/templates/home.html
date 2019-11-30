@@ -1,12 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Doktor Mismis</title>
-</head>
-<body>
-    <h1>Hoş geldiniz</h1>
-</body>
-</html>
+{% include 'includes/_navbar.html' %}
+
+
+
+<div class="row text-center" style="margin-top: 70px;">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-title">
+                        <h2>Gelir ve Gider Ekle</h2>
+                        <hr>
+                    </div>
+                    <div class="card-body">
+                            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#incomeModal">Gelir Ekle</button>
+                            <span style="margin-left:50px"></span>
+                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#expenseModal">Gider Ekle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+      
+<!-- Income Modal -->
+<div class="modal fade" id="incomeModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="incomeModal" aria-hidden="true">
+<div class="modal-dialog  modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="incomeModal">Gelir Ekle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <!-- Dropdown for income type -->
+        <label for="inputGroupSelect01">Gelir</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Gelir Seç</option>
+              <option value="1">Nakit Satışlar</option>
+              <option value="2">Kredi Kartı Satışlar</option>
+              <option value="3">Ziraat Banka Havale</option>
+              <option value="3">Vakıf Banka Havale</option>
+              <option value="3">Kasada Olan Para</option>
+            </select>
+          </div>
+        <!-- end income type! -->
+        <!-- input for explanation -->
+        <label for="basic-url">Açıklama</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <!-- end input explanation -->
+        <!-- money input -->
+        <label for="basic-url">Miktar</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+                <span class="input-group-text">₺</span>
+            </div>
+        </div>
+        <!-- end money input -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+        <button type="button" class="btn btn-success">Gelir Ekle</button>
+    </div>
+    </div>
+</div>
+</div>
+<!-- end income modal! -->
+
+<!-- expense Modal -->
+<div class="modal fade" id="expenseModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="expenseModal" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="expenseModal">Gelir Ekle</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!-- Dropdown for expense type -->
+            <label for="inputGroupSelect01">Gider</label>
+            <div class="input-group mb-3">
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Gider Seç</option>
+                    <option value="1">Ambalaj Gideri</option>
+                    <option value="2">Yemek Gideri</option>
+                    <option value="3">Otogar Kargo</option>
+                    <option value="3">Araç Yakıt</option>
+                    <option value="3">Personel Maaş</option>
+                    <option value="3">Elektrik Faturası</option>
+                    <option value="3">Maliye Vergisi B.</option>
+                    <option value="3">D. Alınan Mlz.</option>
+                    <option value="3">Depo Gideri v.s.</option>
+                </select>
+                </div>
+            <!-- end expense type! -->
+            <!-- input for explanation -->
+            <label for="basic-url">Açıklama</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
+            <!-- end input explanation -->
+            <!-- money input -->
+            <label for="basic-url">Miktar</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <div class="input-group-append">
+                    <span class="input-group-text">₺</span>
+                </div>
+            </div>
+            <!-- end money input -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+            <button type="button" class="btn btn-success">Gelir Ekle</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- end expense modal! -->
