@@ -1,6 +1,5 @@
 {% include 'includes/_navbar.html' %}
-
-
+<script src="/static/js/moment.min.js"></script>
 
 <div class="row text-center" style="margin-top: 70px;">
     <div class="col-sm-1"></div>
@@ -36,28 +35,28 @@
     </div>
     <div class="modal-body">
         <!-- Dropdown for income type -->
-        <label for="inputGroupSelect01">Gelir</label>
+        <label for="incomeSelect">Gelir</label>
         <div class="input-group mb-3">
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="incomeSelect">
               <option selected>Gelir Seç</option>
               <option value="1">Nakit Satışlar</option>
               <option value="2">Kredi Kartı Satışlar</option>
               <option value="3">Ziraat Banka Havale</option>
-              <option value="3">Vakıf Banka Havale</option>
-              <option value="3">Kasada Olan Para</option>
+              <option value="4">Vakıf Banka Havale</option>
+              <option value="5">Kasada Olan Para</option>
             </select>
           </div>
         <!-- end income type! -->
         <!-- input for explanation -->
-        <label for="basic-url">Açıklama</label>
+        <label for="incomeExplanation">Açıklama</label>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            <input type="text" class="form-control" id="incomeExplanation" aria-describedby="basic-addon3">
         </div>
         <!-- end input explanation -->
         <!-- money input -->
-        <label for="basic-url">Miktar</label>
+        <label for="incomePrice">Miktar</label>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <input id="incomePrice" type="text"  onkeypress='validate(event)' class="form-control" aria-label="Amount (to the nearest dollar)">
             <div class="input-group-append">
                 <span class="input-group-text">₺</span>
             </div>
@@ -65,8 +64,8 @@
         <!-- end money input -->
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
-        <button type="button" class="btn btn-success">Gelir Ekle</button>
+        <button id="incomeCancel" type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+        <button id="incomeSubmit" type="button" class="btn btn-success">Gelir Ekle</button>
     </div>
     </div>
 </div>
@@ -78,39 +77,39 @@
     <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="expenseModal">Gelir Ekle</h5>
+            <h5 class="modal-title" id="expenseModal">Gider Ekle</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
             <!-- Dropdown for expense type -->
-            <label for="inputGroupSelect01">Gider</label>
+            <label for="expenseSelect">Gider</label>
             <div class="input-group mb-3">
-                <select class="custom-select" id="inputGroupSelect01">
+                <select class="custom-select" id="expenseSelect">
                     <option selected>Gider Seç</option>
                     <option value="1">Ambalaj Gideri</option>
                     <option value="2">Yemek Gideri</option>
                     <option value="3">Otogar Kargo</option>
-                    <option value="3">Araç Yakıt</option>
-                    <option value="3">Personel Maaş</option>
-                    <option value="3">Elektrik Faturası</option>
-                    <option value="3">Maliye Vergisi B.</option>
-                    <option value="3">D. Alınan Mlz.</option>
-                    <option value="3">Depo Gideri v.s.</option>
+                    <option value="4">Araç Yakıt</option>
+                    <option value="5">Personel Maaş</option>
+                    <option value="6">Elektrik Faturası</option>
+                    <option value="7">Maliye Vergisi B.</option>
+                    <option value="8">D. Alınan Mlz.</option>
+                    <option value="9">Depo Gideri v.s.</option>
                 </select>
                 </div>
             <!-- end expense type! -->
             <!-- input for explanation -->
-            <label for="basic-url">Açıklama</label>
+            <label for="expenseExplanation">Açıklama</label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                <input type="text" class="form-control" id="expenseExplanation" aria-describedby="basic-addon3">
             </div>
             <!-- end input explanation -->
             <!-- money input -->
-            <label for="basic-url">Miktar</label>
+            <label for="expensePrice">Miktar</label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input id="expensePrice" type="text" class="form-control" onkeypress='validate(event)' aria-label="Amount (to the nearest dollar)">
                 <div class="input-group-append">
                     <span class="input-group-text">₺</span>
                 </div>
@@ -118,10 +117,12 @@
             <!-- end money input -->
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
-            <button type="button" class="btn btn-success">Gelir Ekle</button>
+            <button type="expenseCancel" class="btn btn-danger" data-dismiss="modal">İptal</button>
+            <button type="expenseSubmit" class="btn btn-success">Gider Ekle</button>
         </div>
         </div>
     </div>
 </div>
 <!-- end expense modal! -->
+
+<script src="/static/js/home.js"></script>
