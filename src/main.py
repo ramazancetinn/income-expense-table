@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, flash
 from flask_mysqldb import MySQL
 from datetime import datetime, timedelta, time
 from flask import jsonify

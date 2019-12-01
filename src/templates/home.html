@@ -4,10 +4,16 @@
 <div class="row text-center" style="margin-top: 70px;">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
+        
+        <div class="alert none">
+            <span  id="closeAlertModal" class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <h3 id="alertText">This is an alert box.</h3> 
+        </div>
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-title">
+                    <div class="card-title m-5">
                         <h2>Gelir ve Gider Ekle</h2>
                         <hr>
                     </div>
@@ -117,7 +123,7 @@
             <!-- end money input -->
         </div>
         <div class="modal-footer">
-            <button type="expenseCancel" class="btn btn-danger" data-dismiss="modal">İptal</button>
+            <button type="button" id="expenseCancel" class="btn btn-danger" data-dismiss="modal">İptal</button>
             <button type="button" id="expenseSubmit" class="btn btn-success">Gider Ekle</button>
         </div>
         </div>
@@ -126,3 +132,36 @@
 <!-- end expense modal! -->
 
 <script src="/static/js/home.js"></script>
+<style>
+.none{
+    display: none;
+}
+.alert {
+  padding: 20px;
+  background-color: green; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+.notValid{
+    background-color: rgb(250, 185, 185);
+}
+
+</style>
