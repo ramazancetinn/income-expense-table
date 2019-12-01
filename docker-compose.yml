@@ -1,0 +1,11 @@
+version: "3"
+services:
+  server:
+    build: ./src
+
+    ports:
+      - 8080:5000
+    
+    volumes:
+      - ./src:/src
+      - /var/run/mysqld:/var/run/mysqld
