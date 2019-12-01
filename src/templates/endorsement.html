@@ -1,4 +1,9 @@
 {% include 'includes/_navbar.html' %}
+
+
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<script src="/static/js/bootstrap.min.js"></script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -6,7 +11,7 @@
 
 
 <form action="{{ url_for('endorsement') }}" method="POST" enctype="multipart/form-data">
-    <div style ="height: 40px"></div>
+    <div style="height: 40px"></div>
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="input-group mb-3 col-sm-3">
@@ -26,12 +31,12 @@
         </div>
 
 
-        <div class="custom-control custom-checkbox col-sm-2" style = "padding-top: 7px;">
-                <input   type="checkbox" class="custom-control-input" id="customCheckDisabled" onclick="singleSelect()">
-                <label class="custom-control-label" for="customCheckDisabled">Tekli Seçim</label>
-              </div>
-              
-              
+        <div class="custom-control custom-checkbox col-sm-2" style="padding-top: 7px;">
+            <input type="checkbox" class="custom-control-input" id="customCheckDisabled" onclick="singleSelect()">
+            <label class="custom-control-label" for="customCheckDisabled">Tekli Seçim</label>
+        </div>
+
+
         <div class="col-sm-1">
             <button title="Submit" class="btn">
                 <i class="fa fa-check classesDropdownButton"></i>
@@ -40,6 +45,25 @@
         <div class="col-sm-1"></div>
     </div>
 </form>
+<div style="height: 50px"></div>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="alert alert-info col-sm-10" role="alert">
+        <h4 class="alert-heading" style="text-align: center">Gelir - Gider Bilgileri</h4>
+        <p>
+            ● Toplam Gelir Miktarı : {{price_datas['total_income']}}, <br>
+            ● Toplam Gider Mİktarı : {{price_datas['total_expense']}}, <br>
+            ● Toplam Fark          : {{price_datas['diff']}}, <br>
+            ● Zaman Aralığı        : {{price_datas['time_period']}}
+
+        </p>
+        <hr>
+        <p class="mb-0"> &emsp;( {{price_datas['time_period']}} ) Bu tarihler arasındaki detaylı gelir-gider bilgisine aşağıdaki tablodan ulaşabilirsiniz.</p>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+
 
 <!-- Gelir Gider tabloları ve sonuçları gösterilecek -->
 
@@ -64,12 +88,12 @@
     });
 
     function singleSelect() {
-    var checkBox = document.getElementById("customCheckDisabled");
-    var toDiv = document.getElementById("toDataPickerDiv");
-    if (checkBox.checked == true){
-        toDiv.hidden = true
-    } else {
-        toDiv.hidden = false
-    }
+        var checkBox = document.getElementById("customCheckDisabled");
+        var toDiv = document.getElementById("toDataPickerDiv");
+        if (checkBox.checked == true) {
+            toDiv.hidden = true
+        } else {
+            toDiv.hidden = false
+        }
     }
 </script>
