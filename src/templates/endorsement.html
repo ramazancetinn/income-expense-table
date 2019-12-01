@@ -1,3 +1,75 @@
 {% include 'includes/_navbar.html' %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<form action="{{ url_for('endorsement') }}" method="POST" enctype="multipart/form-data">
+    <div style ="height: 40px"></div>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="input-group mb-3 col-sm-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Başlangıç:</span>
+            </div>
+            <input class="form-control custom-form-control3" type="text" placeholder="yyyy/mm/dd" name='from' ,
+                id='fromdatepicker' required oninvalid="this.setCustomValidity('Lütfen bir tarih seçiniz!')">
+        </div>
+
+        <div class="input-group mb-3 col-sm-3" id="toDataPickerDiv">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Bitiş:</span>
+            </div>
+            <input class="form-control custom-form-control3" type="text" placeholder="yyyy/mm/dd" name='to'
+                id='todatepicker' oninvalid="this.setCustomValidity('Lütfen bir tarih seçiniz!')">
+        </div>
+
+
+        <div class="custom-control custom-checkbox col-sm-2" style = "padding-top: 7px;">
+                <input   type="checkbox" class="custom-control-input" id="customCheckDisabled" onclick="singleSelect()">
+                <label class="custom-control-label" for="customCheckDisabled">Tekli Seçim</label>
+              </div>
+              
+              
+        <div class="col-sm-1">
+            <button title="Submit" class="btn">
+                <i class="fa fa-check classesDropdownButton"></i>
+            </button>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</form>
 
 <!-- Gelir Gider tabloları ve sonuçları gösterilecek -->
+
+
+<script>
+    /* rewrite the today button function to select today's date */
+    $.datepicker._gotoToday = function (id) { $(id).datepicker('setDate', new Date()).datepicker('hide').blur(); };
+    /* jQuery datepicker function used for selecting date */
+    $("#fromdatepicker").datepicker({
+        showAnim: "slideDown",
+        showButtonPanel: true,
+        showOptions: { direction: "up" },
+        dateFormat: "yy-mm-dd",
+        maxDate: 0
+    });
+    $("#todatepicker").datepicker({
+        showAnim: "slideDown",
+        showButtonPanel: true,
+        showOptions: { direction: "up" },
+        dateFormat: "yy-mm-dd",
+        maxDate: 0
+    });
+
+    function singleSelect() {
+    var checkBox = document.getElementById("customCheckDisabled");
+    var toDiv = document.getElementById("toDataPickerDiv");
+    if (checkBox.checked == true){
+        toDiv.hidden = true
+    } else {
+        toDiv.hidden = false
+    }
+    }
+</script>
