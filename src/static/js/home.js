@@ -15,7 +15,7 @@ $("#incomeSubmit").on("click", ()=>{
         $("#incomeSelect").addClass("notValid")
     }
 
-    if(!income_price || !income_type || !income_explanation ){
+    if(!income_price || income_type=="Gelir Seç" || !income_explanation ){
         return false;
     }
 
@@ -35,7 +35,7 @@ $("#incomeSubmit").on("click", ()=>{
             $(".alert").removeClass("none")
             $("#alertText").text("Gelir Eklendi.")
             $("#incomeCancel").click()
-            setInterval(function () {
+            setTimeout(function () {
                 if (!$(".alert").hasClass("none")){
                     $(".alert").addClass("none")
                 }
@@ -60,7 +60,7 @@ $("#expenseSubmit").on("click", ()=>{
         $("#expenseSelect").addClass("notValid")
     }
 
-    if(!expense_price || !expense_type || !expense_explanation ){
+    if(!expense_price || expense_type=="Gider Seç" || !expense_explanation ){
         return false;
     }
     
@@ -80,7 +80,7 @@ $("#expenseSubmit").on("click", ()=>{
             $(".alert").removeClass("none")
             $("#alertText").text("Gider Eklendi.")
             $("#expenseCancel").click()
-            setInterval(function () {
+            setTimeout(function () {
                 if (!$(".alert").hasClass("none")){
                     $(".alert").addClass("none")
                 }
