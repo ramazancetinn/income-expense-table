@@ -146,4 +146,15 @@
 </div>
 <!-- END Income && Expense Tables -->
 <!-- Import endorsement.js -->
+<script>
+function singleSelect() {
+    var checkBox = document.getElementById("customCheckDisabled");
+    var toDiv = document.getElementById("toDataPickerDiv");
+    if (checkBox.checked == true){
+        toDiv.hidden = true
+    } else {
+        toDiv.hidden = false
+    }
+    }
+</script>
 <script src="/static/js/endorsement.js"></script>

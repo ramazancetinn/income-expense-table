@@ -19,15 +19,6 @@ $(document).ready( function () {
         maxDate: 0
     });
 
-    function singleSelect() {
-    var checkBox = document.getElementById("customCheckDisabled");
-    var toDiv = document.getElementById("toDataPickerDiv");
-    if (checkBox.checked == true){
-        toDiv.hidden = true
-    } else {
-        toDiv.hidden = false
-    }
-    }
     
     // Income-Expense Tables
     $('#incomeTable').DataTable({
