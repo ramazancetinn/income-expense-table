@@ -36,7 +36,9 @@ $("#incomeSubmit").on("click", ()=>{
             $("#alertText").text("Gelir Eklendi.")
             $("#incomeCancel").click()
             setInterval(function () {
-                $(".alert").addClass("none")
+                if (!$(".alert").hasClass("none")){
+                    $(".alert").addClass("none")
+                }
             }, 3000)
         }
     })
@@ -79,7 +81,9 @@ $("#expenseSubmit").on("click", ()=>{
             $("#alertText").text("Gider Eklendi.")
             $("#expenseCancel").click()
             setInterval(function () {
-                $(".alert").addClass("none")
+                if (!$(".alert").hasClass("none")){
+                    $(".alert").addClass("none")
+                }
             }, 3000)
         }
     })
