@@ -51,7 +51,7 @@ $("#expenseSubmit").on("click", ()=>{
         expense_explanation: expense_explanation,
         expense_price: expense_price
     }
-
+    console.log(expense_data)
     $.ajax({
         type: "POST",
         url: "/add_expense",
@@ -60,5 +60,5 @@ $("#expenseSubmit").on("click", ()=>{
         success: (res)=>{
             console.log(res)
         }
-})
+    })
 })

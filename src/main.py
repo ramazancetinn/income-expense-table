@@ -1,8 +1,7 @@
 from flask import Flask, request, render_template
 from flask_mysqldb import MySQL
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, time
 from flask import jsonify
-
 
 app = Flask(__name__)
 app.config.from_pyfile("config.py")
@@ -73,7 +72,7 @@ def endorsement():
    cur.execute("select * from income where (income_date between '{}' and '{}')".format(from_date, to_date))
    income_list = cur.fetchall()
    income_list = list(income_list)
-   
+
    # Create expense list with dates
    cur.execute("select * from expense where (expense_date between '{}' and '{}')".format(from_date, to_date))
    expense_list = cur.fetchall()
@@ -92,7 +91,7 @@ def endorsement():
    price_datas = { "total_income" : total_income,
                   "total_expense" : total_expense,
                   "diff"  : total_income-total_expense,
-                  "time_period" : from_date +" : "+ to_date}
+                  "time_period" : from_date +","+ to_date}
 
    print(price_datas)
 
