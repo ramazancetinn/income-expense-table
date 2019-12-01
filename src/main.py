@@ -81,12 +81,12 @@ def endorsement():
    #Total income
    total_income = 0
    for i in income_list:
-      total_income = total_income + int(i["income_price"])
+      total_income = total_income + float(i["income_price"])
 
    #Total expense
    total_expense = 0
    for i in expense_list:
-      total_expense = total_expense + int(i["expense_price"])
+      total_expense = total_expense + float(i["expense_price"])
 
    price_datas = { "total_income" : total_income,
                   "total_expense" : total_expense,
