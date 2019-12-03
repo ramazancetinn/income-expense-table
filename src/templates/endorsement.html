@@ -5,10 +5,12 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/b-1.6.1/b-html5-1.6.1/r-2.2.3/sl-1.3.1/datatables.min.css"/>
+<link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/b-1.6.1/b-html5-1.6.1/r-2.2.3/sl-1.3.1/datatables.min.css" />
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/b-1.6.1/b-html5-1.6.1/r-2.2.3/sl-1.3.1/datatables.min.js"></script>
+<script type="text/javascript"
+    src="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/b-1.6.1/b-html5-1.6.1/r-2.2.3/sl-1.3.1/datatables.min.js"></script>
 <!-- end Imports -->
 
 <form action="{{ url_for('endorsement') }}" method="POST" enctype="multipart/form-data">
@@ -45,12 +47,26 @@
         <div class="col-sm-1"></div>
     </div>
 </form>
+
+<hr>
+<h4 class="alert-heading card-title" style="text-align: center"> </h4>
+<div align="center">
+<form action="/endorsement" method="POST">
+    <input name="specific_Search" type="submit" class="btn btn-outline-primary" value="1 Günlük"type="text">
+    <input name="specific_Search" type="submit" class="btn btn-outline-secondary specificSearch" value="1 Haftalık"type="text">
+    <input name="specific_Search" type="submit" class="btn btn-outline-success specificSearch" value="15 Günlük"type="text">
+    <input name="specific_Search" type="submit" class="btn btn-outline-warning specificSearch" value="1 Aylık"type="text">
+    <input name="specific_Search" type="submit" class="btn btn-outline-info specificSearch" value="3 Aylık" type="text">
+    <input name="specific_Search" type="submit" class="btn btn-outline-dark specificSearch" value="6 Aylık" type="text">
+    <input name="specific_Search" type="submit" class="btn btn-outline-dark specificSearch" value="1 Yıllık" type="text">
+</form>
+</div>
+<hr>
 <div style="height: 50px"></div>
 <div class="row">
     <div class="col-sm-1"></div>
     <div class="alert alert-light col-sm-10" role="alert">
         <h4 class="alert-heading card-title" style="text-align: center">Gelir - Gider Bilgileri</h4>
-        <hr>
         <table class="table table-striped table-bordered table-hover">
             <thead class="thead-dark">
                 <tr>
@@ -64,14 +80,17 @@
                 <tr>
                     <td class="table-success">{{price_datas['total_income']}}</td>
                     <td class="table-danger">{{price_datas['total_expense']}}</td>
-                    <td class="{{ 'table-danger' if price_datas['diff'] < 0 else 'table-success'}}  some_value %}">{{price_datas['diff']}}</td>
+                    <td class="{{ 'table-danger' if price_datas['diff'] < 0 else 'table-success'}}  some_value %}">
+                        {{price_datas['diff']}}</td>
                     {% set list1 = price_datas['time_period'].split(',') %}
-                    <td><span style="size: 50px;" class="badge badge-info">{{  list1[0] }}</span> / <span class="badge badge-warning">{{  list1[1] }}</span></td>
+                    <td><span style="size: 50px;" class="badge badge-info">{{  list1[0] }}</span> / <span
+                            class="badge badge-warning">{{  list1[1] }}</span></td>
                 </tr>
             </tbody>
         </table>
         <hr>
-        <p class="mb-0"> &emsp;( {{price_datas['time_period']}} ) Bu tarihler arasındaki detaylı gelir-gider bilgisine aşağıdaki tablodan ulaşabilirsiniz.</p>
+        <p class="mb-0"> &emsp;( {{price_datas['time_period']}} ) Bu tarihler arasındaki detaylı gelir-gider bilgisine
+            aşağıdaki tablodan ulaşabilirsiniz.</p>
     </div>
     <div class="col-sm-1"></div>
 </div>
@@ -85,7 +104,11 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                <caption style="margin-bottom: 5px; background-color: green;"><h4 class="text-center" style="border-radius: 10px;padding: 10px; background-color: green; color: white;">Gelir Tablosu</h4></caption>
+                <caption style="margin-bottom: 5px; background-color: green;">
+                    <h4 class="text-center"
+                        style="border-radius: 10px;padding: 10px; background-color: green; color: white;">Gelir Tablosu
+                    </h4>
+                </caption>
                 <hr>
                 <table id="incomeTable" class="table table-striped table-bordered table-hover">
                     <thead>
@@ -117,7 +140,11 @@
                 <div class="vl" style="margin-left: -10px;border-left: 1px solid gray; height: 500px;"></div>
             </div>
             <div class="col-md-10">
-                <caption style="margin-bottom: 5px;"><h4 class="text-center" style="border-radius: 10px;padding: 10px; background-color: red; color: white;">Gider Tablosu</h4></caption>
+                <caption style="margin-bottom: 5px;">
+                    <h4 class="text-center"
+                        style="border-radius: 10px;padding: 10px; background-color: red; color: white;">Gider Tablosu
+                    </h4>
+                </caption>
                 <hr>
                 <table id="expenseTable" class="table table-striped table-bordered">
                     <thead>
@@ -129,14 +156,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                            {% for expense in expense_list %}
-                            <tr>
-                                <td>{{expense["expense_type"]}}</td>
-                                <td>{{expense["expense_explanation"]}}</td>
-                                <td>{{expense["expense_price"]}}</td>
-                                <td>{{expense["expense_date"]}}</td>
-                            </tr>
-                            {% endfor %}
+                        {% for expense in expense_list %}
+                        <tr>
+                            <td>{{expense["expense_type"]}}</td>
+                            <td>{{expense["expense_explanation"]}}</td>
+                            <td>{{expense["expense_price"]}}</td>
+                            <td>{{expense["expense_date"]}}</td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
@@ -147,14 +174,30 @@
 <!-- END Income && Expense Tables -->
 <!-- Import endorsement.js -->
 <script>
-function singleSelect() {
-    var checkBox = document.getElementById("customCheckDisabled");
-    var toDiv = document.getElementById("toDataPickerDiv");
-    if (checkBox.checked == true){
-        toDiv.hidden = true
-    } else {
-        toDiv.hidden = false
+    function singleSelect() {
+        var checkBox = document.getElementById("customCheckDisabled");
+        var toDiv = document.getElementById("toDataPickerDiv");
+        if (checkBox.checked == true) {
+            toDiv.hidden = true
+        } else {
+            toDiv.hidden = false
+        }
     }
-    }
+    $('.specificSearch').on('click', function () {
+        let value = $(this).attr('value');
+        console.log(value)
+        req = $.ajax({
+            url: '/endorsement',
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            data: JSON.stringify({ value: String(value) })
+
+        });
+        req.done(function () {
+
+            location.reload();
+        })
+
+    })
 </script>
 <script src="/static/js/endorsement.js"></script>

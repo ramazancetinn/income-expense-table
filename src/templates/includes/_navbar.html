@@ -23,12 +23,31 @@
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                {% if session.logged_in %}
                 <li class="nav-item active" style="margin-left:50px;">
                     <a class="nav-link" href="/">Anasayfa <span class="sr-only">(current)</span></a>
                 </li>
+                {% endif %}
+                {% if session.logged_in %}  
                 <li class="nav-item active" style="margin-left:50px;">
                     <a class="nav-link" href="/endorsement">Gelir-Gider Tabloları</a>
                 </li>
+                {% endif %}
+                {% if not session.logged_in %} 
+                <li class="nav-item active" style="margin-left:50px;">
+                    <a class="nav-link" href="/login">Giriş Yap</a>
+                </li>
+                {% endif %}
+                {% if not session.logged_in %}
+                <li class="nav-item active" style="margin-left:50px;">
+                    <a class="nav-link" href="/signup">Üye Ol</a>
+                </li>
+                {% endif %}
+                {% if session.logged_in %}
+                <li class="nav-item active" style="margin-left:50px;">
+                    <a class="nav-link" href="/logout">Çıkış</a>
+                </li>
+                {% endif %}
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown

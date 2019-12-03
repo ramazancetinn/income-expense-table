@@ -1,0 +1,44 @@
+{% include 'includes/_navbar.html' %}
+<div class="jumbotron _main" >
+<div align="center">
+  <img src="/static/images/logo.png" width="20%" height="20%" class="center"/>
+</div>
+<p></p><br/>
+ 
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="{{ url_for('login') }}">
+    <div  style="width: 300px; margin:0 auto;" class="form-group label " >
+      {{render_field(form.username, class_="form-control")}}
+    </div><br/>
+    <div  style="width: 300px; margin:0 auto;" class="form-group label " >
+      {{render_field(form.password, class_="form-control")}}
+      <div class="border-top pt-3">
+        <small class="text-muted ml-2">
+          <a href="">Şifremi Unuttum</a>
+        </small>
+      </div>
+    </div><br/>
+    <div align="center">
+        <div style="width: 33%">{% include 'includes/_messages.html' %}</div>
+    </div>
+    <p align="center"><input type="submit" class="btn btn-primary" value="Giriş"></p>
+  </form>
+  <h1 class="custom-form-control5"></h1>
+  <p align="center">
+      <a href="/signup" class="text" title="Register">Üye Ol</a></p>
+
+
+
+<div align="center">
+      <p class="text-bottom" style= "font-size:80%;">Copyright © Ramo/Ugur 2019-2020. All rights reserved.</p>
+      </div>
+
+
+
+
+</div>
+<style>
+._main{
+      background-color: rgb(233,236,239,0.6)
+    }
+</style>

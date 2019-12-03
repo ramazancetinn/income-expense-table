@@ -1,0 +1,33 @@
+{% include 'includes/_navbar.html' %}
+<h1 class="custom-form-control5"></h1>
+
+<div class="jumbotron">
+  <h1 align="center">Üye Ol</h1>
+  <p></p>
+
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div  style="width: 500px; margin:0 auto;" class="form-group label" >
+      {{render_field(form.company_name, class_="form-control")}}
+    </div><br/>
+    <div style="width: 500px; margin:0 auto;" class="form-group label">
+      {{render_field(form.email, class_="form-control")}}
+    </div><br/>
+    <div style="width: 500px; margin:0 auto;" class="form-group label ">
+      {{render_field(form.username, class_="form-control")}}
+    </div><br/>
+    <div style="width: 500px; margin:0 auto;" class="form-group label">
+      {{render_field(form.password, class_="form-control")}}
+    </div><br/>
+    <div style="width: 500px; margin:0 auto;" class="form-group label">
+      {{render_field(form.confirm, class_="form-control")}}
+    </div><br/>
+    <p align="center"><input type="submit" class="btn btn-primary" value="Onayla"></p>
+  </form>
+  <h1 class="custom-form-control5"></h1>
+  <p align="center">Zaten Üye misiniz?
+      <a  href="/" class="text" title="Login">Giriş Yap</a></p>
+</div>
+<div align="center">
+    <div style="width: 33%">{% include 'includes/_messages.html' %}</div>
+</div>
