@@ -254,7 +254,8 @@ def endorsement():
    #Total income
    total_income = 0
    for i in income_list:
-      total_income = total_income + float(i["income_price"])
+      if i["income_price"]:
+         total_income = total_income + float(i["income_price"])
 
    #Total expense
    total_expense = 0
